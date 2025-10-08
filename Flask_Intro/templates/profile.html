@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Profile</div>
+            <ul class="nav_links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li><a href="{{ url_for('index') }}#Tools">Works</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome_home" class="Welcome">
+            <div class="welcome_content">
+                <h1><span class="highlight">Iza Marie Tomacruz</span></h1>
+                <p>2nd Year Student of BSCPE 2-2</p>
+            </div>
+        </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about_content">
+            <div class="about_image">
+                <img src="{{ url_for('static', filename='profile.jfif') }}" alt="Profile picture of Iza Marie Tomacruz">
+            </div>
+            <div class="about_text">
+                <p>
+                    Welcome to my Profile, my name is <strong>Iza Marie Tomacruz</strong> and I am currently a student of 
+                    <em>Polytechnic University of the Philippines</em> earning a Bachelor’s degree in Computer Engineering.
+                    I'm currently in my 1st semester of 2nd year, and as for my goal for this website, is to collect some of my works 
+                    for the subject of Data Structure and Algorithm. The motto that I always liked is <em>"Focus on progress, not perfection"</em>, 
+                    this motto always reminds me that I should focus on the progress of improving myself rather than being perfect. 
+                </p>
+            </div>
+        </div>
+    </section>
+
+    </main>
+</body>
+</html>

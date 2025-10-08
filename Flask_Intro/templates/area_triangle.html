@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area of Triangle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Area of Triangle</div>
+            <ul class="nav_links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li><a href="{{ url_for('index') }}#Tools">Works</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="welcome_home" class="Welcome">
+            <div class="welcome_content">
+                {% if result %}
+                    <div class="result">
+                        <h1><span class="highlight">{{ result }}</span></h1>
+                    </div>
+                {% endif %}
+            </div>
+            <h2>The Area of Triangle</h2>
+        </section>
+
+    <form action="{{ url_for('area_triangle') }}" method="post">
+        <h1>Calculating the Area of Triangle</h1>
+        <p>Type the base and height of the triangle and click the calculate button. The area will appear above.</p>
+        <label for="base">Base:</label>
+        <input type="text" id="base" name="base" placeholder="Enter base value">
+
+        <label for="height">Height:</label>
+        <input type="text" id="height" name="height" placeholder="Enter height value">
+
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>

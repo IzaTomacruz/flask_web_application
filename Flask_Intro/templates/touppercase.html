@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert to Uppercase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">To UpperCase</div>
+            <ul class="nav_links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li><a href="{{ url_for('index') }}#Tools">Works</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="welcome_home" class="Welcome">
+            <div class="welcome_content">
+                {% if result %}
+                <h1><span class="highlight">{{ result }}</span></h1>
+                {% endif %}
+                <h2>Converted string</h2>
+            </div>
+        </section>
+
+    <form action="/touppercase" method="post">
+        <h1>Convert String to Uppercase</h1>
+        <p>Type the text you want to capitalize bellow and click the convert button. The text will apppear above.</p>
+        <label for="inputString">Enter a string:</label>
+        <input type="text" id="inputString" name="inputString">
+        <input type="submit" value="Convert">
+    </form>
+</body>
+</html>
