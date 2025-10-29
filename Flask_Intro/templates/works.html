@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Works</div>
+            <ul class="nav_links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li><a href="{{ url_for('works') }}">Works</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="about" class="about">
+            <h2>Here, you’ll find several mini applications, including:</h2>
+            <div class="about_content">
+                <div class="about_text">
+                    <p>
+                        <li><em><strong><span class="highlight_text">To Uppercase Text Converter</span></strong></em>: Convert any text into uppercase.</li>
+                        <li><em><strong><span class="highlight_text">Area of Circle Calculator</span></strong></em>: Compute the area of a circle based on its radius.</li>
+                        <li><em><strong><span class="highlight_text">Area of Triangle Calculator</span></strong></em>: Calculate the area of a triangle using its base and height.</li>
+                        <li><em><strong><span class="highlight_text">Infix to Postfix Converter</span></strong></em>: Convert infix expressions to postfix notation.</li>
+                    </p>
+                </div>
+                </div>
+                <div id="Tools" class="tools">
+                    <h3>Tools</h3>
+                        <a href="{{ url_for('touppercase') }}" class="tools-btn">To UpperCase</a>
+                        <a href="{{ url_for('area_circle') }}" class="tools-btn">Area of Circle</a>
+                        <a href="{{ url_for('area_triangle') }}" class="tools-btn">Area of Triangle</a>
+                        <a href="{{ url_for('infix_to_postfix') }}" class="tools-btn">Infix to Postfix</a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>
+
+

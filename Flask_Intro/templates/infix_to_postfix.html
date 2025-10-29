@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infix to Postfix Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Infix to Postfix Converter</div>
+            <ul class="nav_links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li><a href="{{ url_for('works') }}">Works</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+    <form action="{{ url_for('infix_to_postfix') }}" method="post">
+        <h1><span class="highlight">The Infix to Postfix Converter</span></h1>
+        <p>Type the infix expression and click the convert button. The postfix expression will appear bellow.</p>
+        <label for="expression">Enter infix expression:</label>
+        <input type="text" id="expression" name="expression" placeholder="Enter infix expression">
+        <input type="submit" value="Convert to postfix">
+        <label for="result">Postfix expression:</label>
+        <p id="result">
+            {% if result %}
+                <span class="highlight">{{ result }}</span>
+            {% endif %}
+        </p>
+    </form>
+
+    </main>
+</body>
+</html>

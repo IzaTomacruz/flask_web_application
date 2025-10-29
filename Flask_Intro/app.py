@@ -54,5 +54,56 @@ def touppercase():
 def contact():
     return render_template('contacts.html')
 
+@app.route('/works')
+def works():
+    return render_template('works.html')
+
+# Infix to Postfix Conversion
+
+def precedence(op):
+    if op in ('+', '-'):
+        return 1
+    elif op in ('*', '/'):
+        return 2
+    elif op == '^':
+        return 3
+    return 0
+
+def infix_postfix(expression):
+    ops = [] #stack for operators
+    output = [] #stack for output
+    
+    for token in expression:
+        #if token is an Operand, add to output stack
+        if token.isalnum():
+            output.append(token)
+        #if token is an open bracket "(", push it onto ops stack
+        elif token == '(':
+            ops.append(token)
+        #if token is a closing bracket ")", while top of ops is not '(', pop the ops and push to the output
+        elif token == ')':
+            while ops and ops[-1] != '(':
+                output.append(ops.pop())
+            ops.pop()
+        #if token is an operator, 
+        elif token in ['+', '-', '*', '/', '^']:
+            while ops and precedence(ops[-1]) >= precedence(token):
+                output.append(ops.pop())    
+            ops.append(token)
+            
+    while ops:
+        output.append(ops.pop())
+
+    return output
+
+@app.route('/infix_to_postfix', methods=['GET', 'POST'])
+def infix_to_postfix():
+    result = None
+    if request.method == 'POST':
+        infix_expression = request.form.get('expression', '').strip()
+        postfix_expression = infix_postfix(infix_expression)
+        result = ' '.join(postfix_expression)
+    return render_template('infix_to_postfix.html', result=result)
+
 if __name__ == "__main__":
     app.run(debug=True)
